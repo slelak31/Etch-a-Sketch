@@ -6,7 +6,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .container {
@@ -15,10 +14,18 @@ body {
     display: flex;
     flex-wrap: wrap;
     border: 2px solid black;
+    --size: 16;
 }
 
 .grid-square {
-    flex: 0 0 calc(100% / 16);
+    flex: 0 0 calc(100% / var(--size));
     aspect-ratio: 1 / 1;
     border: 1px solid black;
+}
+
+.grid-square-drawn{
+    flex: 0 0 calc(100% / var(--size));
+    aspect-ratio: 1 / 1;
+    border: 1px solid black;
+    background-color: var(--currentColor);
 }
