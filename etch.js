@@ -10,14 +10,13 @@ let currentColor = 'black';
 
 
 const container = document.querySelector(".container");
-
-container.style.setProperty('--size', GridSize);
+const body = document.querySelector("body");
 
 function fillColor (cell) {
     cell.style.backgroundColor = currentColor;
 };
 
-container.addEventListener('mousedown', (e) => {
+body.addEventListener('mousedown', (e) => {
     drawingActive = true;
     if (e.target.matches('.grid-square')) {
         fillColor(e.target);
@@ -25,13 +24,39 @@ container.addEventListener('mousedown', (e) => {
     e.preventDefault();
 });
 
-let gridDiv = [];
+body.addEventListener('mouseup', (e) => {
+    drawingActive = false;
+    e.preventDefault();
+});
+
+body.addEventListener('mouseover', (e) => {
+    if (drawingActive === true) {
+    if (e.target.matches('.grid-square')) {
+        fillColor(e.target);
+    }
+    e.preventDefault();
+    }
+});
+
+body.addEventListener('mouseleave', (e) => {
+    drawingActive = false;
+    e.preventDefault();
+});
+
+
+function createGrid (GridSize) {
+
+container.replaceChildren();
+container.style.setProperty('--size', GridSize);
 
 for (let i = 0; i < (GridSize * GridSize); i++) {
-    gridDiv[i] = document.createElement("div")
-    gridDiv[i].classList.add("grid-square")
-    container.appendChild(gridDiv[i]);
+    const cell = document.createElement("div");
+    cell.classList.add("grid-square");
+    container.appendChild(cell);
 }
+}
+
+createGrid(GridSize);
 
 
 
