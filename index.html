@@ -2,12 +2,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="etch.css">
 </head>
 <body>
-    <div class = "container">
-        
+
+    <div class = "main">
+
+        <header class = "title">
+
+            <h1>Etch-a-Sketch</h1>
+        </header>
+
+        <div class = "bodyContainer">
+
+             <div class = "sideBar">
+
+                <button id="color">Color Mode</button>
+
+                <button id="rainbow">Rainbow Mode</button>
+
+                <button id="erase">Eraser</button>
+
+                <button id="clear">Clear Board</button>
+
+                <div class="slidecontainer">
+                    <p><span id="gridSize1"></span> x <span id="gridSize2"></span></p>
+                    <input type="range" min="4" max="64" value="16" class="slider" id="myRange">
+                </div>
+
+            </div>
+
+
+            <div class = "container">
+
+            </div>
+
+        </div>
 
     </div>
 
